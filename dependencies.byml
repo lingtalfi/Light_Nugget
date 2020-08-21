@@ -1,0 +1,8 @@
+dependencies: 
+    Ling: 
+        - BabyYaml
+        - Light
+    
+
+post_install: 
+    map: true
