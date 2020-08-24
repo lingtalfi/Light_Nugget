@@ -25,7 +25,10 @@ This method is based on naming conventions, and the nugget is stored in a [babyY
 With:
 
 - $plugin: the plugin name (for instance Light_PluginABC)
-- $suggestionPath: the suggestion path to the babyYaml file, relative to the **nuggetBaseDir** directory (see more details below)
+    For security reasons, the double dot char (..) is not allowed.
+    
+- $suggestionPath: the suggestion path to the babyYaml file, relative to the **nuggetBaseDir** directory (see more details below).
+    For security reasons, the double dot char (..) is not allowed.
 
 
 - nuggetBaseDir: $app_dir/config/data/$plugin/$relPath/$suggestionPath.byml
@@ -68,6 +71,22 @@ If the suggestion path was: **nugget_01.generated** for instance, then the concr
 - $app_dir/config/data/Light_ABC/Light_SuperList/all/nugget_01.custom.byml
 - $app_dir/config/data/Light_ABC/Light_SuperList/all/nugget_01.generated.byml
 
+
+  
+Security recommendation
+----------
+2020-08-24
+
+
+Plugin authors, remember that the **nuggetId** is often passed via ajax, and therefore anybody can change it.
+Since there is a direct correlation between the suggested path and the actual file in the filesystem, we recommend
+that you always call the **getNugget** method with a relPath argument that is not only your plugin's name, but also includes an extra subdirectory.
+
+For instance, if your plugin name is **Light_ABC**, use **Light_ABC/items** (for instance) as your relPath instead of just **Light_ABC**.
+
+That's because if your plugin ever uses other types of configuration files, you don't want the malicious user to access them just by using a malicious nuggetId.
+
+In other words, use the **relPath** argument to define the chroot dir of your nuggets.
 
   
 

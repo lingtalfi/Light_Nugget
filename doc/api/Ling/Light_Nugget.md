@@ -18,6 +18,7 @@ Table of contents
 Dependencies
 ============
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
+- [Bat](https://github.com/lingtalfi/Bat)
 - [Light](https://github.com/lingtalfi/Light)
 
 

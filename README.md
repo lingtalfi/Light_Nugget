@@ -64,6 +64,10 @@ nugget:
 History Log
 =============
 
+- 1.2.0 -- 2020-08-24
+
+    - update conception notes, add security recommendation, made LightNuggetService->getNugget method a little more secure
+    
 - 1.1.0 -- 2020-08-24
 
     - update conception notes

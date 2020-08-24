@@ -5,6 +5,7 @@ namespace Ling\Light_Nugget\Service;
 
 
 use Ling\BabyYaml\BabyYamlUtil;
+use Ling\Bat\FileSystemTool;
 use Ling\Light\Helper\LightNamesAndPathHelper;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Nugget\Exception\LightNuggetException;
@@ -61,6 +62,9 @@ class LightNuggetService
             $this->error("Invalid nuggetId format, \$plugin:\$suggestionPath was expected.");
         }
         list($plugin, $suggestionPath) = $p;
+
+        $plugin = FileSystemTool::removeTraversalDots($plugin);
+        $suggestionPath = FileSystemTool::removeTraversalDots($suggestionPath);
 
 
         $conf = null;

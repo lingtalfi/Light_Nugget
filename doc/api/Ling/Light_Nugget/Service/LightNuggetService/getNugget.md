@@ -54,7 +54,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightNuggetService::getNugget](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L57-L83)
+See the source code for method [LightNuggetService::getNugget](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L58-L87)
 
 
 See Also
