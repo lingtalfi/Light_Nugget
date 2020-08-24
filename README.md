@@ -1,6 +1,6 @@
 Light_Nugget
 ===========
-2020-08-21
+2020-08-21 -> 2020-08-24
 
 
 
@@ -64,6 +64,10 @@ nugget:
 History Log
 =============
 
+- 1.1.0 -- 2020-08-24
+
+    - update conception notes
+    
 - 1.0.1 -- 2020-08-21
 
     - update doc (forgot to configure docTools)

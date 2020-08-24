@@ -1,6 +1,6 @@
 Light_Nugget, conception notes
 ============
-2020-08-21
+2020-08-21 -> 2020-08-24
 
 
 
@@ -15,11 +15,12 @@ We provide a method to access your [nuggets](https://github.com/lingtalfi/Light/
 - getNugget (string nuggetId, string relPath): array 
 
 
+This method is based on naming conventions, and the nugget is stored in a [babyYaml](https://github.com/lingtalfi/BabyYaml) file.
 
 
-This is based on the following convention, where a nugget is stored in a [babyYaml](https://github.com/lingtalfi/BabyYaml) file located in a so-called **nugget dir**, such as:
 
-- nugget_dir: $plugin:$suggestionPath
+- **nuggetId**: $plugin:$suggestionPath
+
 
 With:
 
