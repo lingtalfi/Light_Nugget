@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightNuggetService::error](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L100-L103)
+See the source code for method [LightNuggetService::error](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L101-L104)
 
 
 See Also

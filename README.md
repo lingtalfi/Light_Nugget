@@ -1,6 +1,6 @@
 Light_Nugget
 ===========
-2020-08-21 -> 2020-08-24
+2020-08-21 -> 2020-08-25
 
 
 
@@ -64,6 +64,10 @@ nugget:
 History Log
 =============
 
+- 1.2.1 -- 2020-08-25
+
+    - update LightNuggetService->getNugget docBlock comment.
+    
 - 1.2.0 -- 2020-08-24
 
     - update conception notes, add security recommendation, made LightNuggetService->getNugget method a little more secure

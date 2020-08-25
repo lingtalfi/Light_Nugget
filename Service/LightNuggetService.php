@@ -54,6 +54,7 @@ class LightNuggetService
      * @param string $nuggetId
      * @param string $relPath
      * @return array
+     * @throws \Exception
      */
     public function getNugget(string $nuggetId, string $relPath): array
     {

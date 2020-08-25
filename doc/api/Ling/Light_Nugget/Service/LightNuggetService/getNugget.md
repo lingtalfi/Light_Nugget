@@ -46,6 +46,11 @@ Return values
 Returns array.
 
 
+Exceptions thrown
+================
+
+- [Exception](http://php.net/manual/en/class.exception.php).&nbsp;
+
 
 
 
@@ -54,7 +59,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightNuggetService::getNugget](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L58-L87)
+See the source code for method [LightNuggetService::getNugget](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L59-L88)
 
 
 See Also
