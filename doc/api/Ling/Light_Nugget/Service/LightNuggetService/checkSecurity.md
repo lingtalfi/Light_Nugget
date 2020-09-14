@@ -16,15 +16,13 @@ Description
 ================
 
 
-public [LightNuggetService::checkSecurity](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/checkSecurity.md)(array $security, ?array $params = []) : void
+public [LightNuggetService::checkSecurity](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/checkSecurity.md)(array $nugget, ?array $params = []) : void
 
 
 
 
 Check that the user is granted the permission to execute an action, and throws an exception if that's not the case.
 This system is described in greater details in the [baked in security system section of the Light_Nugget conception notes](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/pages/conception-notes.md#a-baked-in-security-system-for-nugget-users).
-
-The security array is the one described in the aforementioned system.
 
 The params array is used if you define a custom handler.
 Your custom handler defines what the params array should contain.
@@ -36,7 +34,7 @@ Parameters
 ================
 
 
-- security
+- nugget
 
     
 
@@ -59,7 +57,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightNuggetService::checkSecurity](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L108-L219)
+See the source code for method [LightNuggetService::checkSecurity](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L106-L223)
 
 
 See Also
