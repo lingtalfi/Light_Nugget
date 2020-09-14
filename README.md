@@ -64,6 +64,10 @@ nugget:
 History Log
 =============
 
+- 1.2.4 -- 2020-09-14
+
+    - update LightNuggetService->checkSecurity, now takes the security bit instead of the whole nugget.
+    
 - 1.2.3 -- 2020-09-14
 
     - add LightNuggetService->checkSecurity method.

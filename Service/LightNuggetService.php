@@ -96,130 +96,126 @@ class LightNuggetService
      * Check that the user is granted the permission to execute an action, and throws an exception if that's not the case.
      * This system is described in greater details in the @page(baked in security system section of the Light_Nugget conception notes).
      *
+     * The security array is the one described in the aforementioned system.
+     *
      * The params array is used if you define a custom handler.
      * Your custom handler defines what the params array should contain.
      *
      *
-     * @param array $nugget
+     * @param array $security
      * @param array $params
      */
-    public function checkSecurity(array $nugget, array $params = [])
+    public function checkSecurity(array $security, array $params = [])
     {
 
-        if (array_key_exists("security", $nugget)) {
 
-            $security = $nugget["security"];
-
-
-            //--------------------------------------------
-            // ANY/ALL HANDLING
-            //--------------------------------------------
-            $any = $security['any'] ?? [];
-            $all = $security['all'] ?? [];
+        //--------------------------------------------
+        // ANY/ALL HANDLING
+        //--------------------------------------------
+        $any = $security['any'] ?? [];
+        $all = $security['all'] ?? [];
 
 
-            $um = null;
-            $mp = null;
+        $um = null;
+        $mp = null;
 
 
-            /**
-             * Note: the implementation below is not fixed (see conception notes),
-             *  maybe we will be able to merge any and all in the future, but for now,
-             * as I need to write something, I just execute them one after the other.
-             */
-            if ($any) {
-                foreach ($any as $type => $value) {
-                    switch ($type) {
-                        case "permission":
+        /**
+         * Note: the implementation below is not fixed (see conception notes),
+         *  maybe we will be able to merge any and all in the future, but for now,
+         * as I need to write something, I just execute them one after the other.
+         */
+        if ($any) {
+            foreach ($any as $type => $value) {
+                switch ($type) {
+                    case "permission":
 
-                            if (null === $um) {
-                                /**
-                                 * @var $um LightUserManagerService
-                                 */
-                                $um = $this->container->get('user_manager');
-                            }
-                            $user = $um->getValidWebsiteUser();
-                            if ($user->hasRight($value)) {
-                                return; // the user is granted
-                            }
-                            break;
-                        case "micro_permission":
-                            if (null === $mp) {
-                                /**
-                                 * @var $mp LightMicroPermissionService
-                                 */
-                                $mp = $this->container->get("micro_permission");
-                            }
-                            if (true === $mp->hasMicroPermission($value)) {
-                                return; // user is granted
-                            }
+                        if (null === $um) {
+                            /**
+                             * @var $um LightUserManagerService
+                             */
+                            $um = $this->container->get('user_manager');
+                        }
+                        $user = $um->getValidWebsiteUser();
+                        if ($user->hasRight($value)) {
+                            return; // the user is granted
+                        }
+                        break;
+                    case "micro_permission":
+                        if (null === $mp) {
+                            /**
+                             * @var $mp LightMicroPermissionService
+                             */
+                            $mp = $this->container->get("micro_permission");
+                        }
+                        if (true === $mp->hasMicroPermission($value)) {
+                            return; // user is granted
+                        }
 
-                            break;
-                        default:
-                            $this->error("Unknown type: $type.");
-                            break;
-                    }
-                }
-
-            } elseif ($all) {
-                foreach ($all as $type => $value) {
-                    switch ($type) {
-                        case "permission":
-
-                            if (null === $um) {
-                                /**
-                                 * @var $um LightUserManagerService
-                                 */
-                                $um = $this->container->get('user_manager');
-                            }
-                            $user = $um->getValidWebsiteUser();
-                            if (false === $user->hasRight($value)) {
-                                $this->error("Permission denied: the current user is doesn't have the \"$value\" permission.");
-                            }
-                            break;
-                        case "micro_permission":
-                            if (null === $mp) {
-                                /**
-                                 * @var $mp LightMicroPermissionService
-                                 */
-                                $mp = $this->container->get("micro_permission");
-                            }
-                            if (false === $mp->hasMicroPermission($value)) {
-                                $this->error("Permission denied: the current user is doesn't have the \"$value\" micro-permission.");
-                            }
-
-                            break;
-                        default:
-                            $this->error("Unknown type: $type.");
-                            break;
-                    }
+                        break;
+                    default:
+                        $this->error("Unknown type: $type.");
+                        break;
                 }
             }
 
+        } elseif ($all) {
+            foreach ($all as $type => $value) {
+                switch ($type) {
+                    case "permission":
 
-            //--------------------------------------------
-            // CUSTOM HANDLER
-            //--------------------------------------------
-            $handler = $security['handler'] ?? null;
-            if (is_string($handler)) {
-                $className = $handler;
-                $handler = new $className();
-                if ($handler instanceof LightServiceContainerAwareInterface) {
-                    $handler->setContainer($this->container);
-                }
+                        if (null === $um) {
+                            /**
+                             * @var $um LightUserManagerService
+                             */
+                            $um = $this->container->get('user_manager');
+                        }
+                        $user = $um->getValidWebsiteUser();
+                        if (false === $user->hasRight($value)) {
+                            $this->error("Permission denied: the current user is doesn't have the \"$value\" permission.");
+                        }
+                        break;
+                    case "micro_permission":
+                        if (null === $mp) {
+                            /**
+                             * @var $mp LightMicroPermissionService
+                             */
+                            $mp = $this->container->get("micro_permission");
+                        }
+                        if (false === $mp->hasMicroPermission($value)) {
+                            $this->error("Permission denied: the current user is doesn't have the \"$value\" micro-permission.");
+                        }
 
-                if (false === $handler instanceof LightNuggetSecurityHandlerInterface) {
-                    $type = gettype($handler);
-                    $this->error("The handler must be an instance of LightNuggetSecurityHandlerInterface, $type given.");
-                }
-
-                if (false === $handler->isGranted($params)) {
-                    $this->error("Permission denied by custom handler ($className).");
+                        break;
+                    default:
+                        $this->error("Unknown type: $type.");
+                        break;
                 }
             }
-
-
         }
+
+
+        //--------------------------------------------
+        // CUSTOM HANDLER
+        //--------------------------------------------
+        $handler = $security['handler'] ?? null;
+        if (is_string($handler)) {
+            $className = $handler;
+            $handler = new $className();
+            if ($handler instanceof LightServiceContainerAwareInterface) {
+                $handler->setContainer($this->container);
+            }
+
+            if (false === $handler instanceof LightNuggetSecurityHandlerInterface) {
+                $type = gettype($handler);
+                $this->error("The handler must be an instance of LightNuggetSecurityHandlerInterface, $type given.");
+            }
+
+            if (false === $handler->isGranted($params)) {
+                $this->error("Permission denied by custom handler ($className).");
+            }
+        }
+
     }
 
 
