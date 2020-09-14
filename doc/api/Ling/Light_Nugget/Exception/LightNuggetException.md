@@ -4,7 +4,7 @@
 
 The LightNuggetException class
 ================
-2020-08-21 --> 2020-08-25
+2020-08-21 --> 2020-09-14
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_Nugget\Exception\LightNuggetException](https:
 
 SeeAlso
 ==============
-Next class: [LightNuggetService](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService.md)<br>
+Next class: [LightNuggetSecurityHandlerInterface](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/SecurityHandler/LightNuggetSecurityHandlerInterface.md)<br>

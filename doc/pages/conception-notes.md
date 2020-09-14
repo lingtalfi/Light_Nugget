@@ -1,7 +1,16 @@
 Light_Nugget, conception notes
 ============
-2020-08-21 -> 2020-08-24
+2020-08-21 -> 2020-09-14
 
+
+
+
+Summary
+-------
+
+- [The suggestion path](#the-suggestion-path)
+- [Security recommendation](#security-recommendation)
+- [A baked in security system for nugget users](#a-baked-in-security-system-for-nugget-users)
 
 
 
@@ -89,5 +98,43 @@ That's because if your plugin ever uses other types of configuration files, you 
 In other words, use the **relPath** argument to define the chroot dir of your nuggets.
 
   
+
+
+A baked in security system for nugget users
+---------------
+2020-09-14
+
+
+As our service is becoming more popular, we provide a handy system for plugin authors to check whether a user is granted the action described in the nugget.
+
+
+We basically use the [basic security nugget system](https://github.com/lingtalfi/TheBar/blob/master/discussions/basic-security-nugget.md), but we've also added some extra properties.
+
+To use our security system, add the security directive to your nugget.
+
+
+It takes the following properties:
+
+- any: (same as the **basic security nugget system**)
+- all: (same as the **basic security nugget system**)
+- handler: string, the class name of a handler. It must implement our **LightNuggetSecurityHandlerInterface** interface.
+    If it's **container** aware (i.e. if it implements [LightServiceContainerAwareInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md)), it will be passed the container.
+    
+    
+If **any** or **all** are defined, they will be used as described in the **basic security nugget system**. In addition to that, 
+if the handler is defined, it will be used to make an extra check.
+
+
+Then, all you need to do is call the **checkSecurity** method of our service, which throws an exception if the user isn't granted the right to execute the action,
+based on the security nugget configuration.    
+
+
+
+
+
+
+
+
+
 
 

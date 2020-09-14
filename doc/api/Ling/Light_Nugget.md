@@ -1,6 +1,6 @@
 Ling/Light_Nugget
 ================
-2020-08-21 --> 2020-08-25
+2020-08-21 --> 2020-09-14
 
 
 
@@ -9,10 +9,13 @@ Table of contents
 ===========
 
 - [LightNuggetException](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Exception/LightNuggetException.md) &ndash; The LightNuggetException class.
+- [LightNuggetSecurityHandlerInterface](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/SecurityHandler/LightNuggetSecurityHandlerInterface.md) &ndash; The LightNuggetSecurityHandlerInterface interface.
+    - [LightNuggetSecurityHandlerInterface::isGranted](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/SecurityHandler/LightNuggetSecurityHandlerInterface/isGranted.md) &ndash; Returns whether the current user is granted an action defined the given parameters.
 - [LightNuggetService](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService.md) &ndash; The LightNuggetService class.
     - [LightNuggetService::__construct](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/__construct.md) &ndash; Builds the LightNuggetService instance.
     - [LightNuggetService::setContainer](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/setContainer.md) &ndash; Sets the container.
     - [LightNuggetService::getNugget](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/getNugget.md) &ndash; Returns the nugget identified by the given nuggetId and relPath.
+    - [LightNuggetService::checkSecurity](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/checkSecurity.md) &ndash; Check that the user is granted the permission to execute an action, and throws an exception if that's not the case.
 
 
 Dependencies
@@ -20,5 +23,7 @@ Dependencies
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Bat](https://github.com/lingtalfi/Bat)
 - [Light](https://github.com/lingtalfi/Light)
+- [Light_MicroPermission](https://github.com/lingtalfi/Light_MicroPermission)
+- [Light_UserManager](https://github.com/lingtalfi/Light_UserManager)
 
 
