@@ -64,6 +64,10 @@ nugget:
 History Log
 =============
 
+- 1.2.7 -- 2020-09-14
+
+    - fix LightNuggetService->checkSecurity not working (loose implementation)
+    
 - 1.2.6 -- 2020-09-14
 
     - add security.handler_params directive

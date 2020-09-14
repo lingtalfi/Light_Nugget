@@ -128,6 +128,7 @@ class LightNuggetService
              * as I need to write something, I just execute them one after the other.
              */
             if ($any) {
+                $isGranted = false;
                 foreach ($any as $type => $value) {
                     switch ($type) {
                         case "permission":
@@ -140,7 +141,8 @@ class LightNuggetService
                             }
                             $user = $um->getValidWebsiteUser();
                             if ($user->hasRight($value)) {
-                                return; // the user is granted
+                                $isGranted = true;
+                                break 2;
                             }
                             break;
                         case "micro_permission":
@@ -151,7 +153,8 @@ class LightNuggetService
                                 $mp = $this->container->get("micro_permission");
                             }
                             if (true === $mp->hasMicroPermission($value)) {
-                                return; // user is granted
+                                $isGranted = true;
+                                break 2;
                             }
 
                             break;
@@ -159,6 +162,9 @@ class LightNuggetService
                             $this->error("Unknown type: $type.");
                             break;
                     }
+                }
+                if (false === $isGranted) {
+                    $this->error("Permission denied: the current user doesn't have any of the permissions defined by the security directive of the configuration.");
                 }
 
             } elseif ($all) {
