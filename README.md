@@ -64,6 +64,10 @@ nugget:
 History Log
 =============
 
+- 1.2.6 -- 2020-09-14
+
+    - add security.handler_params directive
+    
 - 1.2.5 -- 2020-09-14
 
     - update LightNuggetService->checkSecurity, now takes the whole nugget instead of the security bit (cancelling last commit).

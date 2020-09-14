@@ -213,6 +213,14 @@ class LightNuggetService
                     $this->error("The handler must be an instance of LightNuggetSecurityHandlerInterface, $type given.");
                 }
 
+
+                if (array_key_exists("handler_params", $security)) {
+                    /**
+                     * Let the developer params have precedence over the one defined in security.handler_params.
+                     */
+                    $params = array_merge($security['handler_params'], $params);
+                }
+
                 if (false === $handler->isGranted($params)) {
                     $this->error("Permission denied by custom handler ($className).");
                 }

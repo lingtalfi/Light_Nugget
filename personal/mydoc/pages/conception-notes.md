@@ -119,6 +119,7 @@ It takes the following properties:
 - all: (same as the **basic security nugget system**)
 - handler: string, the class name of a handler. It must implement our **LightNuggetSecurityHandlerInterface** interface.
     If it's **container** aware (i.e. if it implements [LightServiceContainerAwareInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md)), it will be passed the container.
+- handler_params: array of params to pass to the handler. This doesn't prevent params from other sources to be passed as well.
     
     
 If **any** or **all** are defined, they will be used as described in the **basic security nugget system**. In addition to that, 
