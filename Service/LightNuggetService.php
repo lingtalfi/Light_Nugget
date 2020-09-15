@@ -4,6 +4,7 @@
 namespace Ling\Light_Nugget\Service;
 
 
+use Ling\ArrayVariableResolver\ArrayVariableResolverUtil;
 use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\FileSystemTool;
 use Ling\Light\Helper\LightNamesAndPathHelper;
@@ -55,13 +56,23 @@ class LightNuggetService
      * Returns the nugget identified by the given nuggetId and relPath.
      * See the @page(Light_Nugget conception notes) for more details.
      *
+     *
+     * Available options are:
+     *
+     * - vars: bool=true, whether to use the variables replacement system. See more details in the @page(Light_Nugget conception notes)
+     *
+     *
      * @param string $nuggetId
      * @param string $relPath
+     * @param array $options
      * @return array
      * @throws \Exception
      */
-    public function getNugget(string $nuggetId, string $relPath): array
+    public function getNugget(string $nuggetId, string $relPath, array $options = []): array
     {
+        $useVars = $options['vars'] ?? true;
+
+
         $p = explode(':', $nuggetId, 2);
         if (2 !== count($p)) {
             $this->error("Invalid nuggetId format, \$plugin:\$suggestionPath was expected.");
@@ -88,7 +99,11 @@ class LightNuggetService
             $this->error("Nugget not found with nuggetId: $nuggetId ($symbol).");
         }
 
-        return BabyYamlUtil::readFile($f);
+        $conf = BabyYamlUtil::readFile($f);
+        if (true === $useVars) {
+            $this->resolveVariables($conf);
+        }
+        return $conf;
     }
 
 
@@ -236,6 +251,24 @@ class LightNuggetService
         }
     }
 
+
+    /**
+     * Resolve the variables in place in the given nugget.
+     *
+     * @param array $nugget
+     * @throws \Exception
+     */
+    public function resolveVariables(array &$nugget)
+    {
+        if (array_key_exists("_vars", $nugget)) {
+            $vars = $nugget['_vars'];
+            $resolver = new ArrayVariableResolverUtil();
+            $resolver->setFirstSymbol("");
+            $resolver->setOpeningBracket('{$');
+            $resolver->setClosingBracket('}');
+            $resolver->resolve($nugget, $vars);
+        }
+    }
 
 
     //--------------------------------------------

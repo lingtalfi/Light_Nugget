@@ -133,6 +133,55 @@ based on the security nugget configuration.
 
 
 
+Variables replacement
+-------------
+2020-09-15
+
+
+Being able to use variables in a nugget has some benefits: it makes the file more efficiently organized, and more readable.
+
+
+We provide a variable replacement mechanism for you. It comes in two flavours:
+
+- a standalone method that plugin authors can use (the **resolveVariables** method)
+- by default, when you use our **getNugget** method you can use variables replacement
+
+
+How to use our variables replacement system?
+
+You need to add the **_vars** special directive to your nugget.
+It's an array of key/value pairs. 
+
+Then to use it in your nugget, use the {$myVar} notation.
+
+Note: the value of your variable can also be an array.
+
+Here is an example:
+
+```yaml
+_vars:
+    firstName: paul
+    fruits:
+        - apple
+        - banana
+
+duelist:
+    table: lun_user_notification un
+    ric:
+        - id
+    dessert: {$fruits} 
+    owner: {firstName} 
+        
+```
+
+
+
+
+
+
+
+
+
 
 
 

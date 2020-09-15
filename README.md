@@ -64,6 +64,10 @@ nugget:
 History Log
 =============
 
+- 1.2.8 -- 2020-09-15
+
+    - add variables replacement mechanism
+    
 - 1.2.7 -- 2020-09-14
 
     - fix LightNuggetService->checkSecurity not working (loose implementation)

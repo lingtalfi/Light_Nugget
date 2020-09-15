@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightNuggetService::setContainer](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L44-L47)
+See the source code for method [LightNuggetService::setContainer](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L45-L48)
 
 
 See Also

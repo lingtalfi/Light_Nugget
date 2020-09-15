@@ -16,13 +16,18 @@ Description
 ================
 
 
-public [LightNuggetService::getNugget](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/getNugget.md)(string $nuggetId, string $relPath) : array
+public [LightNuggetService::getNugget](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/getNugget.md)(string $nuggetId, string $relPath, ?array $options = []) : array
 
 
 
 
 Returns the nugget identified by the given nuggetId and relPath.
 See the [Light_Nugget conception notes](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/pages/conception-notes.md) for more details.
+
+
+Available options are:
+
+- vars: bool=true, whether to use the variables replacement system. See more details in the [Light_Nugget conception notes](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/pages/conception-notes.md)
 
 
 
@@ -36,6 +41,10 @@ Parameters
     
 
 - relPath
+
+    
+
+- options
 
     
 
@@ -59,7 +68,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightNuggetService::getNugget](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L63-L92)
+See the source code for method [LightNuggetService::getNugget](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L71-L107)
 
 
 See Also
