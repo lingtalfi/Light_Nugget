@@ -1,6 +1,6 @@
 Light_Nugget
 ===========
-2020-08-21 -> 2020-09-14
+2020-08-21 -> 2020-09-18
 
 
 
@@ -64,6 +64,10 @@ nugget:
 History Log
 =============
 
+- 1.2.9 -- 2020-09-18
+
+    - update conception notes toc
+    
 - 1.2.8 -- 2020-09-15
 
     - add variables replacement mechanism

@@ -1,6 +1,6 @@
 Light_Nugget, conception notes
 ============
-2020-08-21 -> 2020-09-14
+2020-08-21 -> 2020-09-18
 
 
 
@@ -11,6 +11,7 @@ Summary
 - [The suggestion path](#the-suggestion-path)
 - [Security recommendation](#security-recommendation)
 - [A baked in security system for nugget users](#a-baked-in-security-system-for-nugget-users)
+- [Variables replacement](#variables-replacement)
 
 
 
