@@ -137,7 +137,7 @@ based on the security nugget configuration.
 
 Variables replacement
 -------------
-2020-09-15
+2020-09-15 -> 2020-09-21
 
 
 Being able to use variables in a nugget has some benefits: it makes the file more efficiently organized, and more readable.
@@ -154,7 +154,7 @@ How to use our variables replacement system?
 You need to add the **_vars** special directive to your nugget.
 It's an array of key/value pairs. 
 
-Then to use it in your nugget, use the {$myVar} notation.
+Then to use it in your nugget, use the %{myVar} notation.
 
 Note: the value of your variable can also be an array.
 
@@ -171,8 +171,8 @@ duelist:
     table: lun_user_notification un
     ric:
         - id
-    dessert: {$fruits} 
-    owner: {firstName} 
+    dessert: %{fruits} 
+    owner: %{firstName} 
         
 ```
 

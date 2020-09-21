@@ -264,7 +264,7 @@ class LightNuggetService
             $vars = $nugget['_vars'];
             $resolver = new ArrayVariableResolverUtil();
             $resolver->setFirstSymbol("");
-            $resolver->setOpeningBracket('{$');
+            $resolver->setOpeningBracket('%{');
             $resolver->setClosingBracket('}');
             $resolver->resolve($nugget, $vars);
         }

@@ -64,6 +64,10 @@ nugget:
 History Log
 =============
 
+- 1.3.0 -- 2020-09-21
+
+    - update variables resolution system, now use percent notation to avoid conflict with babyYaml mappings
+    
 - 1.2.10 -- 2020-09-21
 
     - update conception notes suggestion path
