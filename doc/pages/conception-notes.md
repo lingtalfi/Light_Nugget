@@ -1,6 +1,6 @@
 Light_Nugget, conception notes
 ============
-2020-08-21 -> 2020-09-18
+2020-08-21 -> 2020-09-21
 
 
 
@@ -37,7 +37,7 @@ With:
 - $plugin: the plugin name (for instance Light_PluginABC)
     For security reasons, the double dot char (..) is not allowed.
     
-- $suggestionPath: the suggestion path to the babyYaml file, relative to the **nuggetBaseDir** directory (see more details below).
+- $suggestionPath: the suggestion path to the babyYaml file, without the **.byml** extension, and relative to the **nuggetBaseDir** directory (see more details below).
     For security reasons, the double dot char (..) is not allowed.
 
 
@@ -68,10 +68,11 @@ Therefore, in this case the complete path to the nugget file is:
 
 The suggestion path
 -------
-2020-08-21
+2020-08-21 -> 2020-09-21
 
 
-A suggestion path is basically a path that follows the [generated/custom pattern](https://github.com/lingtalfi/TheBar/blob/master/discussions/generated-custom-config-pattern.md).
+A suggestion path is basically a path that follows the [generated/custom pattern](https://github.com/lingtalfi/TheBar/blob/master/discussions/generated-custom-config-pattern.md),
+but without the **.byml** extension.
 
 So for instance, in the previous example the suggestion path was **nugget_01**.
 
