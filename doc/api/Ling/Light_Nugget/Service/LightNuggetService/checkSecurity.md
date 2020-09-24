@@ -57,7 +57,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightNuggetService::checkSecurity](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L121-L252)
+See the source code for method [LightNuggetService::checkSecurity](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L154-L285)
 
 
 See Also
@@ -65,5 +65,5 @@ See Also
 
 The [LightNuggetService](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService.md) class.
 
-Previous method: [getNugget](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/getNugget.md)<br>Next method: [resolveVariables](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/resolveVariables.md)<br>
+Previous method: [getNuggetDirective](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/getNuggetDirective.md)<br>Next method: [resolveVariables](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/resolveVariables.md)<br>
 

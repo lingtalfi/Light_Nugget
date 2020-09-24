@@ -27,7 +27,9 @@ See the [Light_Nugget conception notes](https://github.com/lingtalfi/Light_Nugge
 
 Available options are:
 
-- vars: bool=true, whether to use the variables replacement system. See more details in the [Light_Nugget conception notes](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/pages/conception-notes.md)
+- varsKey: string=null, The key used to hold the variables (see the conception notes for more info).
+     If false, the variable replacement system will not be used.
+     If null, the varsKey will default to "_vars".
 
 
 
@@ -68,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightNuggetService::getNugget](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L71-L107)
+See the source code for method [LightNuggetService::getNugget](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L74-L110)
 
 
 See Also
@@ -76,5 +78,5 @@ See Also
 
 The [LightNuggetService](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService.md) class.
 
-Previous method: [setContainer](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/setContainer.md)<br>Next method: [checkSecurity](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/checkSecurity.md)<br>
+Previous method: [setContainer](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/setContainer.md)<br>Next method: [getNuggetDirective](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/getNuggetDirective.md)<br>
 

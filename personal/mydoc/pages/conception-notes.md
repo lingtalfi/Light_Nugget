@@ -1,6 +1,6 @@
 Light_Nugget, conception notes
 ============
-2020-08-21 -> 2020-09-21
+2020-08-21 -> 2020-09-24
 
 
 
@@ -12,6 +12,8 @@ Summary
 - [Security recommendation](#security-recommendation)
 - [A baked in security system for nugget users](#a-baked-in-security-system-for-nugget-users)
 - [Variables replacement](#variables-replacement)
+- [The getNuggetDirective method](#the-getnuggetdirective-method)
+
 
 
 
@@ -39,6 +41,7 @@ With:
     
 - $suggestionPath: the suggestion path to the babyYaml file, without the **.byml** extension, and relative to the **nuggetBaseDir** directory (see more details below).
     For security reasons, the double dot char (..) is not allowed.
+    The colon char (:) is also not allowed, since it's a delimiter of the nuggetId
 
 
 - nuggetBaseDir: $app_dir/config/data/$plugin/$relPath/$suggestionPath.byml
@@ -86,7 +89,7 @@ If the suggestion path was: **nugget_01.generated** for instance, then the concr
   
 Security recommendation
 ----------
-2020-08-24
+2020-08-24 -> 2020-09-24
 
 
 Plugin authors, remember that the **nuggetId** is often passed via ajax, and therefore anybody can change it.
@@ -98,6 +101,15 @@ For instance, if your plugin name is **Light_ABC**, use **Light_ABC/items** (for
 That's because if your plugin ever uses other types of configuration files, you don't want the malicious user to access them just by using a malicious nuggetId.
 
 In other words, use the **relPath** argument to define the chroot dir of your nuggets.
+
+
+As a general security recommendation, although it's obvious, let me say it again: never trust the user, and consider your ajax script as a gui for the user, and so
+never trust the parameters collected via ajax.
+
+In the end, the only thing you can rely on is your permission system, (assuming the user session is not corrupted). 
+This means: always check your meaningful action's permissions before executing them, because a malicious user can't access your permission system
+just by changing the parameters sent to an ajax script.
+
 
   
 
@@ -178,6 +190,41 @@ duelist:
 
 
 
+
+
+The getNuggetDirective method
+----------
+2020-09-24
+
+
+Like the **getNugget** method, the **getNuggetDirective** allows us to fetch information in a file.
+
+Only this time instead of retrieving the whole file as an array, we retrieve a specific directive from that file.
+
+
+The mechanism is very similar to the **getNugget** method:
+
+
+- getNuggetDirective (string nuggetDirectiveId, string relPath): mixed 
+
+
+
+- **nuggetDirectiveId**: $nuggetId:$directivePath
+
+With:
+
+- $nuggetId, the nugget id, defined earlier in this document
+- $directivePath, the [bdot](https://github.com/karayabin/universe-snapshot/blob/master/universe/Ling/Bat/doc/bdot-notation.md) path to the directive to retrieve
+    The **directivePath** cannot contain the colon char (:), since it's already used as a separator for the **nuggetDirectiveId**
+    
+    
+
+About security, our [security recommendation](#security-recommendation) still apply.
+    
+
+
+
+ 
 
 
 

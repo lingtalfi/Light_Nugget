@@ -6,6 +6,7 @@ namespace Ling\Light_Nugget\Service;
 
 use Ling\ArrayVariableResolver\ArrayVariableResolverUtil;
 use Ling\BabyYaml\BabyYamlUtil;
+use Ling\Bat\BDotTool;
 use Ling\Bat\FileSystemTool;
 use Ling\Light\Helper\LightNamesAndPathHelper;
 use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
@@ -59,7 +60,9 @@ class LightNuggetService
      *
      * Available options are:
      *
-     * - vars: bool=true, whether to use the variables replacement system. See more details in the @page(Light_Nugget conception notes)
+     * - varsKey: string=null, The key used to hold the variables (see the conception notes for more info).
+     *      If false, the variable replacement system will not be used.
+     *      If null, the varsKey will default to "_vars".
      *
      *
      * @param string $nuggetId
@@ -70,7 +73,7 @@ class LightNuggetService
      */
     public function getNugget(string $nuggetId, string $relPath, array $options = []): array
     {
-        $useVars = $options['vars'] ?? true;
+        $varsKey = $options['varsKey'] ?? null;
 
 
         $p = explode(':', $nuggetId, 2);
@@ -100,10 +103,40 @@ class LightNuggetService
         }
 
         $conf = BabyYamlUtil::readFile($f);
-        if (true === $useVars) {
-            $this->resolveVariables($conf);
+        if (false !== $varsKey) {
+            $this->resolveVariables($conf, $varsKey);
         }
         return $conf;
+    }
+
+
+    /**
+     * Returns the value of the directive identified by the given nuggetDirectiveId and relPath.
+     * An exception is thrown is such directive doesn't exist.
+     *
+     * Available options are the same as the getNugget method's options.
+     *
+     *
+     *
+     * @param string $nuggetDirectiveId
+     * @param string $relPath
+     * @param array $options
+     */
+    public function getNuggetDirective(string $nuggetDirectiveId, string $relPath, array $options = [])
+    {
+        $p = explode(":", $nuggetDirectiveId);
+        if (3 !== count($p)) {
+            $this->error("Invalid nuggetDirectiveId format, with \"$nuggetDirectiveId\".");
+        }
+        $directivePath = array_pop($p);
+        $nuggetId = implode(":", $p);
+        $nugget = $this->getNugget($nuggetId, $relPath, $options);
+        $found = false;
+        $value = BDotTool::getDotValue($directivePath, $nugget, null, $found);
+        if (false === $found) {
+            $this->error("Directive not found with nuggetId: \"$nuggetId\", and path: \"$directivePath\".");
+        }
+        return $value;
     }
 
 
@@ -256,12 +289,16 @@ class LightNuggetService
      * Resolve the variables in place in the given nugget.
      *
      * @param array $nugget
+     * @param string|null $key
      * @throws \Exception
      */
-    public function resolveVariables(array &$nugget)
+    public function resolveVariables(array &$nugget, string $key = null)
     {
-        if (array_key_exists("_vars", $nugget)) {
-            $vars = $nugget['_vars'];
+        if (null === $key) {
+            $key = "_vars";
+        }
+        if (array_key_exists($key, $nugget)) {
+            $vars = $nugget[$key];
             $resolver = new ArrayVariableResolverUtil();
             $resolver->setFirstSymbol("");
             $resolver->setOpeningBracket('%{');

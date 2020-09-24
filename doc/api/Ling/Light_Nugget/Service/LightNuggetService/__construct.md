@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightNuggetService::__construct](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L35-L38)
+See the source code for method [LightNuggetService::__construct](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L36-L39)
 
 
 See Also

@@ -1,6 +1,6 @@
 Light_Nugget
 ===========
-2020-08-21 -> 2020-09-21
+2020-08-21 -> 2020-09-24
 
 
 
@@ -64,6 +64,10 @@ nugget:
 History Log
 =============
 
+- 1.3.1 -- 2020-09-24
+
+    - update LightNuggetService, add getNuggetDirective method
+    
 - 1.3.0 -- 2020-09-21
 
     - update variables resolution system, now use percent notation to avoid conflict with babyYaml mappings
