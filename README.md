@@ -1,6 +1,6 @@
 Light_Nugget
 ===========
-2020-08-21 -> 2020-09-24
+2020-08-21 -> 2020-10-02
 
 
 
@@ -64,6 +64,10 @@ nugget:
 History Log
 =============
 
+- 1.3.2 -- 2020-10-02
+
+    - update LightNuggetService, add getNuggetByPath method
+    
 - 1.3.1 -- 2020-09-24
 
     - update LightNuggetService, add getNuggetDirective method

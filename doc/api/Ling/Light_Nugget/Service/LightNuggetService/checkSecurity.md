@@ -57,7 +57,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightNuggetService::checkSecurity](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L154-L285)
+See the source code for method [LightNuggetService::checkSecurity](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L172-L303)
 
 
 See Also

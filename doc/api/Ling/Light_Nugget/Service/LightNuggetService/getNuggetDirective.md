@@ -60,7 +60,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightNuggetService::getNuggetDirective](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L125-L140)
+See the source code for method [LightNuggetService::getNuggetDirective](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L143-L158)
 
 
 See Also

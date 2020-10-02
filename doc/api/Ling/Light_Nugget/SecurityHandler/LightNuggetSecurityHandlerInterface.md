@@ -4,7 +4,7 @@
 
 The LightNuggetSecurityHandlerInterface class
 ================
-2020-08-21 --> 2020-09-24
+2020-08-21 --> 2020-10-02
 
 
 

@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightNuggetService::getNugget](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L74-L110)
+See the source code for method [LightNuggetService::getNugget](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L98-L128)
 
 
 See Also
@@ -78,5 +78,5 @@ See Also
 
 The [LightNuggetService](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService.md) class.
 
-Previous method: [setContainer](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/setContainer.md)<br>Next method: [getNuggetDirective](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/getNuggetDirective.md)<br>
+Previous method: [getNuggetByPath](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/getNuggetByPath.md)<br>Next method: [getNuggetDirective](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/getNuggetDirective.md)<br>
 

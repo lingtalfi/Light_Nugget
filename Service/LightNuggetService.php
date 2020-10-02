@@ -54,6 +54,30 @@ class LightNuggetService
     //
     //--------------------------------------------
     /**
+     * Returns the nugget configuration from its path.
+     *
+     * Available options are:
+     *
+     * - varsKey: string=null, The key used to hold the variables (see the conception notes for more info).
+     *      If false, the variable replacement system will not be used.
+     *      If null, the varsKey will default to "_vars".
+     *
+     * @param string $path
+     * @param array $options
+     * @return array
+     */
+    public function getNuggetByPath(string $path, array $options = []): array
+    {
+        $varsKey = $options['varsKey'] ?? null;
+        $conf = BabyYamlUtil::readFile($path);
+        if (false !== $varsKey) {
+            $this->resolveVariables($conf, $varsKey);
+        }
+        return $conf;
+    }
+
+
+    /**
      * Returns the nugget identified by the given nuggetId and relPath.
      * See the @page(Light_Nugget conception notes) for more details.
      *
@@ -73,9 +97,6 @@ class LightNuggetService
      */
     public function getNugget(string $nuggetId, string $relPath, array $options = []): array
     {
-        $varsKey = $options['varsKey'] ?? null;
-
-
         $p = explode(':', $nuggetId, 2);
         if (2 !== count($p)) {
             $this->error("Invalid nuggetId format, \$plugin:\$suggestionPath was expected.");
@@ -99,14 +120,11 @@ class LightNuggetService
 
         if (false === file_exists($f)) {
             $symbol = LightNamesAndPathHelper::getSymbolicPath($f, $this->container);
-            $this->error("Nugget not found with nuggetId: $nuggetId ($symbol).");
+            $this->error("Nugget not found with nuggetId: $nuggetId ($symbol), and relPath: \"$relPath\".");
         }
 
-        $conf = BabyYamlUtil::readFile($f);
-        if (false !== $varsKey) {
-            $this->resolveVariables($conf, $varsKey);
-        }
-        return $conf;
+
+        return $this->getNuggetByPath($f, $options);
     }
 
 
