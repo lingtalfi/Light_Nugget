@@ -7,7 +7,7 @@ LightNuggetService::getNugget
 
 
 
-LightNuggetService::getNugget — Returns the nugget identified by the given nuggetId and relPath.
+LightNuggetService::getNugget — Returns the output of the [getNuggetByPath method](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/getNuggetByPath.md).
 
 
 
@@ -21,15 +21,9 @@ public [LightNuggetService::getNugget](https://github.com/lingtalfi/Light_Nugget
 
 
 
-Returns the nugget identified by the given nuggetId and relPath.
-See the [Light_Nugget conception notes](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/pages/conception-notes.md) for more details.
+Returns the output of the [getNuggetByPath method](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/getNuggetByPath.md).
 
-
-Available options are:
-
-- varsKey: string=null, The key used to hold the variables (see the conception notes for more info).
-     If false, the variable replacement system will not be used.
-     If null, the varsKey will default to "_vars".
+Available options are also the ones from the getNuggetByPath method.
 
 
 
@@ -70,7 +64,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightNuggetService::getNugget](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L98-L128)
+See the source code for method [LightNuggetService::getNugget](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L108-L138)
 
 
 See Also

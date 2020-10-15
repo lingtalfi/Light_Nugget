@@ -1,6 +1,6 @@
 Ling/Light_Nugget
 ================
-2020-08-21 --> 2020-10-02
+2020-08-21 --> 2020-10-15
 
 
 
@@ -15,7 +15,7 @@ Table of contents
     - [LightNuggetService::__construct](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/__construct.md) &ndash; Builds the LightNuggetService instance.
     - [LightNuggetService::setContainer](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/setContainer.md) &ndash; Sets the container.
     - [LightNuggetService::getNuggetByPath](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/getNuggetByPath.md) &ndash; Returns the nugget configuration from its path.
-    - [LightNuggetService::getNugget](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/getNugget.md) &ndash; Returns the nugget identified by the given nuggetId and relPath.
+    - [LightNuggetService::getNugget](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/getNugget.md) &ndash; Returns the output of the [getNuggetByPath method](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/getNuggetByPath.md).
     - [LightNuggetService::getNuggetDirective](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/getNuggetDirective.md) &ndash; Returns the value of the directive identified by the given nuggetDirectiveId and relPath.
     - [LightNuggetService::checkSecurity](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/checkSecurity.md) &ndash; Check that the user is granted the permission to execute an action, and throws an exception if that's not the case.
     - [LightNuggetService::resolveVariables](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/resolveVariables.md) &ndash; Resolve the variables in place in the given nugget.

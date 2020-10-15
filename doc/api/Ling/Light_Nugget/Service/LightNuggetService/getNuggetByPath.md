@@ -23,6 +23,17 @@ public [LightNuggetService::getNuggetByPath](https://github.com/lingtalfi/Light_
 
 Returns the nugget configuration from its path.
 
+You can use the [Light execute notation](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/notation/light-execute-notation.md)
+by wrapping it into this wrapper:
+
+- ::()::
+
+For instance:
+- ::(MyClass->methodABC)::
+
+
+
+
 Available options are:
 
 - varsKey: string=null, The key used to hold the variables (see the conception notes for more info).
@@ -59,7 +70,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightNuggetService::getNuggetByPath](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L69-L77)
+See the source code for method [LightNuggetService::getNuggetByPath](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L84-L93)
 
 
 See Also

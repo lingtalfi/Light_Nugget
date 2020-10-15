@@ -8,6 +8,7 @@ use Ling\ArrayVariableResolver\ArrayVariableResolverUtil;
 use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\BDotTool;
 use Ling\Bat\FileSystemTool;
+use Ling\Light\Helper\LightHelper;
 use Ling\Light\Helper\LightNamesAndPathHelper;
 use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
@@ -56,11 +57,25 @@ class LightNuggetService
     /**
      * Returns the nugget configuration from its path.
      *
+     * You can use the [Light execute notation](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/notation/light-execute-notation.md)
+     * by wrapping it into this wrapper:
+     *
+     * - ::()::
+     *
+     * For instance:
+     * - ::(MyClass->methodABC)::
+     *
+     *
+     *
+     *
      * Available options are:
      *
      * - varsKey: string=null, The key used to hold the variables (see the conception notes for more info).
      *      If false, the variable replacement system will not be used.
      *      If null, the varsKey will default to "_vars".
+     *
+     *
+     *
      *
      * @param string $path
      * @param array $options
@@ -73,20 +88,15 @@ class LightNuggetService
         if (false !== $varsKey) {
             $this->resolveVariables($conf, $varsKey);
         }
+        $conf = LightHelper::executeParenthesisWrappersByArray($conf, $this->container, ['::']);
         return $conf;
     }
 
 
     /**
-     * Returns the nugget identified by the given nuggetId and relPath.
-     * See the @page(Light_Nugget conception notes) for more details.
+     * Returns the output of the [getNuggetByPath method](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/Service/LightNuggetService/getNuggetByPath.md).
      *
-     *
-     * Available options are:
-     *
-     * - varsKey: string=null, The key used to hold the variables (see the conception notes for more info).
-     *      If false, the variable replacement system will not be used.
-     *      If null, the varsKey will default to "_vars".
+     * Available options are also the ones from the getNuggetByPath method.
      *
      *
      * @param string $nuggetId

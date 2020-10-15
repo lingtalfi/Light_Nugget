@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightNuggetService::resolveVariables](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L313-L326)
+See the source code for method [LightNuggetService::resolveVariables](https://github.com/lingtalfi/Light_Nugget/blob/master/Service/LightNuggetService.php#L323-L336)
 
 
 See Also
