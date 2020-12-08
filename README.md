@@ -64,6 +64,10 @@ nugget:
 History Log
 =============
 
+- 1.3.6 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
 - 1.3.5 -- 2020-12-04
 
     - Add lpi-deps.byml file
