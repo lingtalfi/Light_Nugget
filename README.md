@@ -1,6 +1,6 @@
 Light_Nugget
 ===========
-2020-08-21 -> 2021-03-05
+2020-08-21 -> 2021-03-09
 
 
 
@@ -69,6 +69,10 @@ nugget:
 History Log
 =============
 
+- 1.3.8 -- 2021-03-09
+
+    - update documentation, extend the concept of planet to planetDotName in general
+  
 - 1.3.7 -- 2021-03-05
 
     - update README.md, add install alternative
